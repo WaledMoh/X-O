@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+
+}
+body{
+  background-color: rgb(21, 21, 21);
+  color: white;
+  
+}
+
+.Border-top{
+  border-top: 3px solid rgb(255, 255, 255);
+
+}
+.Border-right{
+  border-right: 3px solid rgb(255, 255, 255);
+
+}
+.Border-bottom{
+  border-bottom: 3px solid rgb(255, 255, 255);
+
+}
+.Border-left{
+  border-left: 3px solid rgb(255, 255, 255);
+
+}
+
+
+.BorderMap{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+}
+
+
+legend{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.4rem;
+  font-weight: bold;
+  text-align: center;
+
+}
+.BorderMap tr{
+  font-size: 5.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.BorderMap td{
+  text-align: center;
+  height: 20vh;
+  width: 20vb;
+}
+.ScoreBody{
+  font-size: 3.4rem;
+  position: absolute;
+margin-left:1rem;
+color: rgb(255, 249, 239);
+}
+.ScoreBody  button{
+  
+  font-size: 1.3rem;
+  padding: 0.22rem;
+background-color: rgb(184, 184, 99);
+border: 2px solid gray;
+border-radius: 10%;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="ScoreBody">
+    <p id="XScore" >Score X:0</p>
+    <p id="OScore">Score O:0</p>
+    <button id="NextRound">Next Round</button>
+    <button id="Restart">Restart The Score</button>
+  </div>
+  <table class="BorderMap">
+
+
+    <legend id="Turn">you start X</legend>
+    <tr>
+      <td id="Box1" onclick="Box1() ,Check()"></td>
+      <td id="Box2" class="Border-left Border-right"  onclick="Box2(),Check()"></td>
+      <td id="Box3"  onclick="Box3(),Check()"></td>
+    </tr>
+
+    <tr>
+      <td id="Box4" class="Border-bottom Border-top"  onclick="Box4(),Check()"></td>
+      <td id="Box5" class="Border-left Border-right Border-bottom Border-top"  onclick="Box5(),Check()"></td>
+      <td id="Box6" class="Border-bottom Border-top"  onclick="Box6(),Check()"></td>
+    </tr>
+
+    <tr>
+      <td id="Box7"  onclick="Box7(),Check()"></td>
+      <td id="Box8" class="Border-left Border-right "  onclick="Box8(),Check()"></td>
+      <td id="Box9"  onclick="Box9(),Check()"></td>
+    </tr>
+  </table>
+  
+
+
+  <script>  
+const turn = document.getElementById("Turn")
+const box1 = document.getElementById("Box1")
+const box2 = document.getElementById("Box2")
+const box3 = document.getElementById("Box3")
+const box4 = document.getElementById("Box4")
+const box5 = document.getElementById("Box5")
+const box6 = document.getElementById("Box6")
+const box7 = document.getElementById("Box7")
+const box8 = document.getElementById("Box8")
+const box9 = document.getElementById("Box9")
+const oscore = document.getElementById("OScore")
+const xscore= document.getElementById("XScore")
+const nextRound = document.getElementById("NextRound")
+const reStartTheGame = document.getElementById("Restart")
+
+let YourTurn=1
+
+let xScore=0
+let oScore=0
+let Game = true
+
+
+
+function Box1() {
+  if (box1.textContent=="" && Game==true) {
+    switch (YourTurn) {
+      case 1:
+        turn.textContent=("O")
+        
+        break;
+      case 2:
+        turn.textContent=("X")
+        break;
+        default:
+    }
+
+    switch (YourTurn) {
+      case 1:
+        box1.style.color="red"
+        box1.textContent=("X")
+        YourTurn=2
+        break;
+        
+      case 2:
+        box1.style.color="blue"
+        box1.textContent=("O")
+        YourTurn=1
+
+        break;
+        default:
+    }
+  }
+  
+}
+
+// 2
+function Box2() {
+  if (box2.textContent==""&& Game==true) {
+    switch (YourTurn) {
+      case 1:
+        turn.textContent=("O")
+  
+        break;
+      case 2:
+        turn.textContent=("X")
+        break;
+        default:
+    }
+
+    switch (YourTurn) {
+      case 1:
+        box2.style.color="red"
+        box2.textContent=("X")
+        YourTurn=2
+        break;
+      case 2:
+        box2.style.color="blue"
+        box2.textContent=("O")
+        YourTurn=1
+        break;
+        default:
+    }
+  }
+  
+  }
+
+
+// 3
+function Box3() {
+  if (box3.textContent==""&& Game==true) {
+    switch (YourTurn) {
+      case 1:
+        turn.textContent=("O")
+  
+        break;
+      case 2:
+        turn.textContent=("X")
+        break;
+        default:
+    }
+
+    switch (YourTurn) {
+      case 1:
+        box3.style.color="red"
+        box3.textContent=("X")
+        YourTurn=2
+        break;
+        
+      case 2:
+        box3.style.color="blue"
+        box3.textContent=("O")
+        YourTurn=1
+
+        break;
+        default:
+    }
+  }
+}
+// 4
+function Box4() {
+
+  
+  if (box4.textContent==""&& Game==true) {
+    switch (YourTurn) {
+      case 1:
+        turn.textContent=("O")
+  
+        break;
+      case 2:
+        turn.textContent=("X")
+        break;
+        default:
+    }
+
+    switch (YourTurn) {
+      case 1:
+        box4.style.color="red"
+        box4.textContent=("X")
+        YourTurn=2
+        break;
+        
+      case 2:
+        box4.style.color="blue"
+        box4.textContent=("O")
+        YourTurn=1
+
+        break;
+        default:
+    }
+  }
+}
+// 5
+function Box5() {
+
+  if (box5.textContent==""&& Game==true) {
+    switch (YourTurn) {
+      case 1:
+        turn.textContent=("O")
+  
+        break;
+      case 2:
+        turn.textContent=("X")
+        break;
+        default:
+    }
+
+    switch (YourTurn) {
+      case 1:
+        box5.style.color="red"
+        box5.textContent=("X")
+        YourTurn=2
+        break;
+        
+      case 2:
+        box5.style.color="blue"
+        box5.textContent=("O")
+        YourTurn=1
+
+        break;
+        default:
+    }
+  }
+}
+// 6
+function Box6() {
+
+  
+  if (box6.textContent==""&& Game==true) {
+    switch (YourTurn) {
+      case 1:
+        turn.textContent=("O")
+  
+        break;
+      case 2:
+        
+        turn.textContent=("X")
+        break;
+        default:
+    }
+
+    switch (YourTurn) {
+      case 1:
+        box6.style.color="red"
+        box6.textContent=("X")
+        YourTurn=2
+        break;
+        
+      case 2:
+        box6.style.color="blue"
+        box6.textContent=("O")
+        YourTurn=1
+
+        break;
+        default:
+    }
+  }
+}
+// 7
+function Box7() {
+
+  
+  if (box7.textContent==""&& Game==true) {
+    switch (YourTurn) {
+      case 1:
+        turn.textContent=("O")
+  
+        break;
+      case 2:
+        turn.textContent=("X")
+        break;
+        default:
+    }
+
+    switch (YourTurn) {
+      case 1:
+        box7.style.color="red"
+        box7.textContent=("X")
+        YourTurn=2
+        break;
+        
+      case 2:
+        box7.style.color="blue"
+        box7.textContent=("O")
+        YourTurn=1
+
+        break;
+        default:
+    }
+  }
+}
+// 8
+function Box8() {
+
+  
+  if (box8.textContent==""&& Game==true) {
+    switch (YourTurn) {
+      case 1:
+        turn.textContent=("O")
+  
+        break;
+      case 2:
+        turn.textContent=("X")
+        break;
+        default:
+    }
+
+    switch (YourTurn) {
+      case 1:
+        box8.style.color="red"
+        box8.textContent=("X")
+        YourTurn=2
+        break;
+        
+      case 2:
+        box8.style.color="blue"
+        box8.textContent=("O")
+        YourTurn=1
+
+        break;
+        default:
+    }
+  }
+}
+// 9
+function Box9(){
+
+  
+  if (box9.textContent==""&& Game==true) {
+    switch (YourTurn) {
+      case 1:
+        turn.textContent=("O")
+        
+  
+        break;
+      case 2:
+        turn.textContent=("X")
+        break;
+        default:
+    }
+
+    switch (YourTurn) {
+      case 1:
+        box9.style.color="red"
+        box9.textContent=("X")
+        YourTurn=2
+        break;
+        
+      case 2:
+        box9.style.color="blue"
+        box9.textContent=("O")
+        YourTurn=1
+
+        break;
+        default:
+    }
+  }
+} 
+
+function Check() {
+  switch (Game) {
+    case true:
+      if (
+        box1.textContent=="X" &&box2.textContent=="X" &&box3.textContent=="X"||
+        box3.textContent=="X" &&box6.textContent=="X" &&box9.textContent=="X"||
+        box9.textContent=="X" &&box8.textContent=="X" &&box7.textContent=="X"||
+        box7.textContent=="X" &&box4.textContent=="X" &&box1.textContent=="X"||
+        box2.textContent=="X" &&box5.textContent=="X" &&box8.textContent=="X"||
+        box4.textContent=="X" &&box5.textContent=="X" &&box6.textContent=="X"||
+        box1.textContent=="X" &&box5.textContent=="X" &&box9.textContent=="X"||
+        box3.textContent=="X" &&box5.textContent=="X" &&box7.textContent=="X") 
+            {
+              Game =false
+          turn.textContent=("X Won")
+          xScore+=1
+          xscore.textContent=(`Score X:${xScore}`)
+      
+        }else if(
+        box1.textContent=="O" &&box2.textContent=="O" &&box3.textContent=="O"||
+        box3.textContent=="O" &&box6.textContent=="O" &&box9.textContent=="O"||
+        box9.textContent=="O" &&box8.textContent=="O" &&box7.textContent=="O"||
+        box7.textContent=="O" &&box4.textContent=="O" &&box1.textContent=="O"||
+        box2.textContent=="O" &&box5.textContent=="O" &&box8.textContent=="O"||
+        box4.textContent=="O" &&box5.textContent=="O" &&box6.textContent=="O"||
+        box1.textContent=="O" &&box5.textContent=="O" &&box9.textContent=="O"||
+        box3.textContent=="O" &&box5.textContent=="O" &&box7.textContent=="O")
+        {
+          Game =false
+          turn.textContent=("O Won")
+          oScore+=1
+          oscore.textContent=(`Score O:${oScore}`)
+        }
+      break;
+  }
+  
+  
+}
+
+function NextRound() {
+  box1.textContent=('')
+  box2.textContent=('')
+  box3.textContent=('')
+  box4.textContent=('')
+  box5.textContent=('')
+  box6.textContent=('')
+  box7.textContent=('')
+  box8.textContent=('')
+  box9.textContent=('')
+
+  Game = true
+  switch (YourTurn) {
+    case 1:
+      turn.textContent=("X")
+      break;
+    case 2:
+      turn.textContent=("O")
+      break;
+      default:
+  }
+}
+nextRound.addEventListener("click", NextRound)
+
+
+function ReStartTheGame() {
+  box1.textContent=('')
+  box2.textContent=('')
+  box3.textContent=('')
+  box4.textContent=('')
+  box5.textContent=('')
+  box6.textContent=('')
+  box7.textContent=('')
+  box8.textContent=('')
+  box9.textContent=('')
+
+  Game = true
+  xScore=0
+  oScore=0
+  xscore.textContent=(`Score X:${xScore}`)
+  oscore.textContent=(`Score O:${oScore}`)
+  
+  switch (YourTurn) {
+    case 1:
+      turn.textContent=("X")
+      break;
+    case 2:
+      turn.textContent=("O")
+      break;
+      default:
+  }
+}
+reStartTheGame.addEventListener("click",ReStartTheGame)
+
+  </script>
+</body>
+</html>
